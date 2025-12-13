@@ -1,4 +1,4 @@
-import { PrismaClient } from "../generated/prisma/client";
+import { PrismaClient } from "../generated/prisma";
 
 export const prisma = new PrismaClient({
   log:
@@ -6,3 +6,4 @@ export const prisma = new PrismaClient({
       ? ["query", "error", "warn"]
       : ["error"],
 });
+
