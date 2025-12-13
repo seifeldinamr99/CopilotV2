@@ -1,0 +1,178 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String        @id @default(uuid())
+  email              String        @unique
+  passwordHash       String
+  name               String
+  metaAccessToken    String?       @db.Text
+  shopifyAccessToken String?       @db.Text
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  adAccounts         AdAccount[]
+  shopifyStores      ShopifyStore[]
+  savedAds           SavedAd[]
+  brandAssets        BrandAsset[]
+}
+
+model AdAccount {
+  id            String     @id @default(uuid())
+  userId        String
+  metaAccountId String     @unique
+  accountName   String
+  currency      String
+  timezone      String
+  lastSyncedAt  DateTime?
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaigns     Campaign[]
+
+  @@index([userId])
+}
+
+model Campaign {
+  id             String            @id @default(uuid())
+  adAccountId    String
+  metaCampaignId String            @unique
+  name           String
+  status         String
+  objective      String
+  dailyBudget    Decimal?          @db.Decimal(10, 2)
+  lifetimeBudget Decimal?          @db.Decimal(10, 2)
+  lastSyncedAt   DateTime?
+  adAccount      AdAccount         @relation(fields: [adAccountId], references: [id], onDelete: Cascade)
+  adSets         AdSet[]
+  metrics        Metric[]
+  recommendations Recommendation[]
+
+  @@index([adAccountId])
+  @@index([metaCampaignId])
+}
+
+model AdSet {
+  id          String   @id @default(uuid())
+  campaignId  String
+  metaAdSetId String   @unique
+  name        String
+  status      String
+  campaign    Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  ads         Ad[]
+
+  @@index([campaignId])
+}
+
+model Ad {
+  id       String @id @default(uuid())
+  adSetId  String
+  metaAdId String @unique
+  name     String
+  status   String
+  adSet    AdSet  @relation(fields: [adSetId], references: [id], onDelete: Cascade)
+
+  @@index([adSetId])
+}
+
+model Metric {
+  id          String   @id @default(uuid())
+  campaignId  String
+  date        DateTime @db.Date
+  spend       Decimal  @db.Decimal(10, 2)
+  impressions Int
+  clicks      Int
+  conversions Int
+  revenue     Decimal? @db.Decimal(10, 2)
+  roas        Decimal? @db.Decimal(10, 4)
+  cpa         Decimal? @db.Decimal(10, 2)
+  ctr         Decimal? @db.Decimal(10, 4)
+  cpm         Decimal? @db.Decimal(10, 2)
+  campaign    Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@unique([campaignId, date])
+  @@index([campaignId])
+  @@index([date])
+}
+
+model Recommendation {
+  id               String    @id @default(uuid())
+  campaignId       String
+  type             String
+  currentValue     Json
+  suggestedValue   Json
+  reasoning        String    @db.Text
+  confidenceScore  Decimal?  @db.Decimal(3, 2)
+  expectedOutcome  Json?
+  actualOutcome    Json?
+  status           String    @default("pending")
+  createdAt        DateTime  @default(now())
+  executedAt       DateTime?
+  campaign         Campaign  @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@index([campaignId])
+  @@index([status])
+}
+
+model ShopifyStore {
+  id           String         @id @default(uuid())
+  userId       String
+  shopDomain   String         @unique
+  accessToken  String         @db.Text
+  lastSyncedAt DateTime?
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders       ShopifyOrder[]
+
+  @@index([userId])
+}
+
+model ShopifyOrder {
+  id             String   @id @default(uuid())
+  shopifyStoreId String
+  orderId        String   @unique
+  revenue        Decimal  @db.Decimal(10, 2)
+  utmSource      String?
+  utmCampaign    String?
+  campaignId     String?
+  createdAt      DateTime
+  shopifyStore   ShopifyStore @relation(fields: [shopifyStoreId], references: [id], onDelete: Cascade)
+
+  @@index([shopifyStoreId])
+  @@index([utmCampaign])
+  @@index([createdAt])
+}
+
+model SavedAd {
+  id              String   @id @default(uuid())
+  userId          String
+  metaAdArchiveId String
+  adCreativeBody  String?  @db.Text
+  adSnapshotUrl   String?  @db.Text
+  metadata        Json?
+  savedAt         DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model BrandAsset {
+  id        String   @id @default(uuid())
+  userId    String
+  type      String
+  fileUrl   String
+  metadata  Json?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
