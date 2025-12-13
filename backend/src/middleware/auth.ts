@@ -1,4 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
+
 import { verifyToken } from "../utils/jwt";
 
 declare module "express-serve-static-core" {
@@ -21,7 +22,7 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
     const payload = verifyToken(token);
     req.user = payload;
     next();
-  } catch (error) {
+  } catch {
     return res.status(401).json({ message: "Invalid token" });
   }
 }
