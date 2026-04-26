@@ -1,0 +1,153 @@
+
+> backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 09:34:54 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[dotenv@17.2.3] injecting env (12) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Server listening on http://localhost:4000
+[0mGET /api/health [32m200[0m 2.066 ms - 20[0m
+[0mGET /api/auth/meta/connect?redirect=1 [36m302[0m 1.551 ms - 294[0m
+[INFO] 09:47:00 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\utils\jwt.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 09:48:01 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta-auth.controller.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 09:48:31 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\server.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Server listening on http://localhost:4000
+[INFO] 10:14:39 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\config\env.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 10:14:47 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\config\env.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server listening on http://localhost:4000
+[INFO] 10:15:46 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 10:15:53 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\routes\meta.routes.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 10:16:12 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta-auth.controller.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server listening on http://localhost:4000
+[INFO] 10:19:59 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\middleware\supabase-auth.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 10:20:10 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (12) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 12:02:30 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\config\env.ts has been modified
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server listening on http://localhost:4000
+[INFO] 12:07:18 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\config\env.ts has been modified
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 12:07:42 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\middleware\supabase-auth.ts has been modified
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[ERROR] 12:07:43 ⨯ Unable to compile TypeScript:
+src/middleware/supabase-auth.ts(34,72): error TS1109: Expression expected.
+
+[INFO] 12:09:20 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\middleware\supabase-auth.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Server listening on http://localhost:4000
+prisma:error 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `13.43.174.140:6543`
+
+Please make sure your database server is running at `13.43.174.140:6543`.
+[0mPOST /api/meta/connect-url [31m500[0m 6087.011 ms - 35[0m
+[INFO] 12:13:12 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 12:15:13 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\config\env.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Server listening on http://localhost:4000
+prisma:error 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+[0mPOST /api/meta/connect-url [32m200[0m 6272.927 ms - 300[0m
+[0mGET /api/auth/meta/callback?code=AQAibWcx3fOTEfmmCXv4vTCDAzuQUlSUc3B56ePKx7cIKD-LS-YFzwVb9vKRSzENB_5xrlBOybUe5KCl7R9zCBIDJFhVBql5QicZmPtJXU_H1HoWjjl1NogpR5CMA-FDjJg9OehGuWMUY4_dz2vgvbfxxISsc2Gxc-TBtYeOuGbdCmNNFg2w94OZdYJwpfkIzEkSvn5OnhUwwFRBs2utG1DvcYKYmciIMPKy5297PRsiCKwW5lCFvMjpSKERtG11_KS5lSg6EGdCVHGkRjbh4UQ6bQgl5ciJqwNdpMvUrlAz-UhkQf-EhcFcErrYGyfO5iQm2uWoqQcFNUvttLD4jZFO0IKWq_FuS_gcbYucMFQKRmqOk93sLjxIzxBUv3J7oFCUR-iEq2n6q6ho6BpNShot2Zmj0sIop5gOlycba60wRfPiNVWHYVs4uguSE8VL7Z8&state=12b657b44b487ac454cf8c3f950c1dbc [32m200[0m 1647.492 ms - 972[0m
+[INFO] 12:19:27 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta-auth.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server listening on http://localhost:4000
+[INFO] 12:20:02 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\routes\auth.routes.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Server listening on http://localhost:4000
+prisma:error 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+[0mPOST /api/meta/connect-url [32m200[0m 10784.588 ms - 300[0m
+prisma:error 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+[0mPOST /api/meta/connect-url [32m200[0m 5667.620 ms - 300[0m
+[0mGET /api/auth/meta/callback?code=AQB-PbwpYTX1Xq4dc2ZrZBKI2D5in9MCn-9px1gKtMc0Y8HTTnjZUhca4gHOdRkufftjNgDI5L4wJ4V_hdD1PJ7acRAHfFPgHMcMuxpcVS5zI-h_iP0dsr3-YnQdtOO9NX5bZgVhiGmQQ-W7ptzbwFUQnmq_jkcshhztEmpdCi_Sw5Lgqs37chQQXFXFhTp0Lc6-hIqQjudFEcWd_xeGX4Llw2pe9OHEtcxKPgxLvmGdRQW4XbYCdMaSlWuZJccPIoZ7v8vSPHVmn74uHsjjOod0LA8A9V86-zggkZif0w__WYz8VZnxL579T-WcrMYtiFcawn0_n67dW50CXT0xMYaU3V9L-LVZTn2o1OIEXzRqqjCOhUbkOAQ4FG-7YkKCmXv7enBiRPFmuGpfQX8a2p-Dx7Cz8SUovwWAWS7V5baRlAtwpZfHJeVifLh-ZVaYvfU&state=66ba1f15d7935b36ac490750194aa20d [36m302[0m 1960.681 ms - 104[0m
+[0mGET /api/auth/meta/ticket?ticket=dd53467cfb7e3eb7fdec9c757516b94c [32m200[0m 1.934 ms - 607[0m
+[0mGET /api/auth/meta/ticket?ticket=dd53467cfb7e3eb7fdec9c757516b94c [33m404[0m 0.862 ms - 30[0m
+[INFO] 12:23:28 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\utils\jwt.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Server listening on http://localhost:4000
+[INFO] 12:23:50 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta-auth.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Server listening on http://localhost:4000
+[INFO] 13:38:35 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\meta.service.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 13:38:59 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 13:39:10 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\routes\meta.routes.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 13:46:53 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Server listening on http://localhost:4000
+prisma:error 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+[0mGET /api/meta/top-campaigns?adAccountId=act_617966614981862&range=last_14_days [31m503[0m 5571.561 ms - 49[0m
+[INFO] 13:53:02 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+Server listening on http://localhost:4000
+[INFO] 13:55:22 Restarting: D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts has been modified
+[dotenv@17.2.3] injecting env (16) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Server listening on http://localhost:4000

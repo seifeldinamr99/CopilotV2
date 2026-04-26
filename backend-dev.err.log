@@ -1,0 +1,101 @@
+Compilation error in D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\middleware\supabase-auth.ts
+PrismaClientInitializationError: 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `13.43.174.140:6543`
+
+Please make sure your database server is running at `13.43.174.140:6543`.
+    at Ln.handleRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:8053)
+    at Ln.handleAndLogRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Ln.request (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at getOrCreatePortalUser (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:20)
+    at metaConnectUrlHandler (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts:12:22) {
+  clientVersion: '5.19.0',
+  errorCode: undefined
+}
+metaConnectUrlHandler: failed to access DB, falling back to stateless OAuth PrismaClientInitializationError: 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+    at Ln.handleRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:8053)
+    at Ln.handleAndLogRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Ln.request (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at getOrCreatePortalUser (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:20)
+    at metaConnectUrlHandler (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts:13:24) {
+  clientVersion: '5.19.0',
+  errorCode: undefined
+}
+metaConnectUrlHandler: failed to access DB, falling back to stateless OAuth PrismaClientInitializationError: 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+    at Ln.handleRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:8053)
+    at Ln.handleAndLogRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Ln.request (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at getOrCreatePortalUser (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:20)
+    at metaConnectUrlHandler (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts:13:24) {
+  clientVersion: '5.19.0',
+  errorCode: undefined
+}
+metaConnectUrlHandler: failed to access DB, falling back to stateless OAuth PrismaClientInitializationError: 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+    at Ln.handleRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:8053)
+    at Ln.handleAndLogRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Ln.request (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at getOrCreatePortalUser (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:20)
+    at metaConnectUrlHandler (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts:13:24) {
+  clientVersion: '5.19.0',
+  errorCode: undefined
+}
+metaTopCampaignsHandler error: PrismaClientInitializationError: 
+Invalid `prisma.portalUser.findUnique()` invocation in
+D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:44
+
+   7 }) {
+   8   const { supabaseUserId, email, name } = params;
+   9 
+→ 10   const existing = await prisma.portalUser.findUnique(
+Can't reach database server at `aws-1-eu-west-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-eu-west-2.pooler.supabase.com:6543`.
+    at Ln.handleRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:8053)
+    at Ln.handleAndLogRequestError (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Ln.request (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at getOrCreatePortalUser (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\services\portal-user.service.ts:10:20)
+    at metaTopCampaignsHandler (D:\OneDrive - Egypt University of Informatics\Desktop\Meta-Coplit-V2\CopilotV2\backend\src\controllers\meta.controller.ts:113:24) {
+  clientVersion: '5.19.0',
+  errorCode: undefined
+}

@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+  @@index([email])
+}
+
+model PortalUser {
+  id                      String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  supabaseUserId          String   @unique
+  email                   String?
+  name                    String?
+  metaAccessToken         String?
+  createdAt               DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt               DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+  shopifyShopDomain       String?
+  shopifyAccessToken      String?
+  metaSelectedAdAccountId String?
+  creatives               PortalCreative[]
+  brandProfile            PortalBrandProfile?
+  brandAssets             PortalBrandAsset[]
+  brandColors             PortalBrandColor[]
+  brandFonts              PortalBrandFont[]
+  workTasks               PortalWorkTask[]
+  aiChatSessions          PortalAIChatSession[]
+  aiActionLogs            PortalAIActionLog[]
+
+  @@index([supabaseUserId])
+  @@index([email])
+  @@index([metaSelectedAdAccountId])
+  @@index([shopifyShopDomain])
+}
+
+model PortalCreative {
+  id              String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId    String
+  name            String?
+  imageUrl        String
+  prompt          String
+  style           String?
+  aspectRatio     String?
+  model           String?
+  generationTime  String?
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+
+  @@index([portalUserId])
+  @@index([createdAt])
+  @@index([portalUserId, createdAt])
+}
+
+model PortalBrandProfile {
+  id           String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String   @unique
+  logoUrl      String?
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+}
+
+model PortalBrandAsset {
+  id           String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String
+  type         String
+  url          String
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+
+  @@index([portalUserId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model PortalBrandColor {
+  id           String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String
+  hex          String
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+
+  @@index([portalUserId])
+  @@index([hex])
+}
+
+model PortalBrandFont {
+  id           String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String
+  family       String
+  variant      String?
+  source       String
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+
+  @@index([portalUserId])
+  @@index([family])
+}
+
+model PortalWorkTask {
+  id         String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String
+  title      String
+  priority   String
+  window     String
+  deadline   DateTime @db.Timestamptz(6)
+  completed  Boolean  @default(false)
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+
+  @@index([portalUserId])
+  @@index([deadline])
+  @@index([priority])
+  @@index([window])
+}
+
+model PortalAIChatSession {
+  id             String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId   String
+  title          String?
+  language       String?
+  createdAt      DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+  lastMessageAt  DateTime @default(now()) @db.Timestamptz(6)
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  messages   PortalAIChatMessage[]
+  actionLogs PortalAIActionLog[]
+
+  @@index([portalUserId])
+  @@index([portalUserId, lastMessageAt])
+  @@index([portalUserId, createdAt])
+}
+
+model PortalAIChatMessage {
+  id         String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  sessionId  String
+  role       String
+  content    String
+  metaJson   Json?
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+
+  session PortalAIChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([sessionId, createdAt])
+}
+
+model PortalAIActionLog {
+  id          String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  portalUserId String
+  sessionId   String?
+  action      String
+  paramsJson  Json
+  status      String
+  requestedAt DateTime @default(now()) @db.Timestamptz(6)
+  completedAt DateTime? @db.Timestamptz(6)
+  error       String?
+
+  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  session    PortalAIChatSession? @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+
+  @@index([portalUserId])
+  @@index([portalUserId, requestedAt])
+  @@index([sessionId, requestedAt])
+}
